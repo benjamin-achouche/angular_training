@@ -1,0 +1,18 @@
+<div class="row">
+  <div class="col-xs-10">
+    <app-bullet-edit></app-bullet-edit>
+    <hr />
+    <ul class="list-group" *ngIf="bullets; else infoText">
+      <a
+        class="list-group-item"
+        style="cursor: pointer"
+        *ngFor="let bullet of bullets"
+      >
+        {{ bullet.name }} ({{ bullet.amount }})
+      </a>
+    </ul>
+    <ng-template #infoText>
+      <p>Please add new bullets</p>
+    </ng-template>
+  </div>
+</div>
