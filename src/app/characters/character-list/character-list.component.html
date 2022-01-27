@@ -1,14 +1,15 @@
 <div class="row">
   <div class="col-xs-12">
-    <button class="btn btn-success">Add Mercenary</button>
+    <button class="btn btn-success" [routerLink]="'new'" >Add Mercenary</button>
   </div>
 </div>
 <hr />
 <div class="row">
   <div class="col-xs-12">
     <app-character-item
-      *ngFor="let characterEl of characters"
+      *ngFor="let characterEl of characters; let i = index"
       [character]="characterEl"
+      [index]="i"
     ></app-character-item>
   </div>
 </div>

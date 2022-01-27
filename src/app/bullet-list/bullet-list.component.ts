@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs';
 import { Bullet } from '../shared/model/bullet.model';
 import { BulletListService } from './service/bullet-list.service';
 
@@ -7,15 +8,20 @@ import { BulletListService } from './service/bullet-list.service';
   templateUrl: './bullet-list.component.html',
   styleUrls: ['./bullet-list.component.css'],
 })
-export class BulletListComponent implements OnInit {
+export class BulletListComponent implements OnInit, OnDestroy {
   bullets: Bullet[];
+  private bulletChangeSub: Subscription;
 
   constructor(private bulletListService: BulletListService) {}
 
   ngOnInit(): void {
     this.bullets = this.bulletListService.getBullets();
-    this.bulletListService.bulletsChanged.subscribe(
+    this.bulletChangeSub = this.bulletListService.bulletsChanged.subscribe(
       (bullets: Bullet[]) => (this.bullets = bullets)
     );
+  }
+
+  ngOnDestroy(): void {
+      this.bulletChangeSub.unsubscribe();
   }
 }

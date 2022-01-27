@@ -1,9 +1,11 @@
-import { EventEmitter, Injectable } from '@angular/core';
+import { Injectable } from '@angular/core';
+import { Subject } from 'rxjs';
+
 import { Bullet } from 'src/app/shared/model/bullet.model';
 
 @Injectable()
 export class BulletListService {
-  bulletsChanged = new EventEmitter<Bullet[]>();
+  bulletsChanged = new Subject<Bullet[]>();
 
   private bullets: Bullet[] = [
     new Bullet('9mm Handgun Ammo', 7),
@@ -16,11 +18,11 @@ export class BulletListService {
 
   addBullet(bullet: Bullet) {
     this.bullets.push(bullet);
-    this.bulletsChanged.emit(this.bullets.slice());
+    this.bulletsChanged.next(this.bullets.slice());
   }
 
   addBullets(bullets: Bullet[]) {
     this.bullets.push(...bullets);
-    this.bulletsChanged.emit(this.bullets.slice());
+    this.bulletsChanged.next(this.bullets.slice());
   }
 }
