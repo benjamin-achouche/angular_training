@@ -11,6 +11,7 @@ import { BulletListComponent } from './bullet-list/bullet-list.component';
 import { BulletEditComponent } from './bullet-list/bullet-edit/bullet-edit.component';
 import { DropdownDirective } from './shared/directives/dropdown.directive';
 import { BulletListService } from './bullet-list/service/bullet-list.service';
+import { HighlightDirective } from './shared/directives/highlight.directive';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { BulletListService } from './bullet-list/service/bullet-list.service';
     BulletListComponent,
     BulletEditComponent,
     DropdownDirective,
+    HighlightDirective,
   ],
   imports: [BrowserModule],
   providers: [BulletListService],

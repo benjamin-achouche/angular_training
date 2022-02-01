@@ -10,6 +10,11 @@ export class HeaderComponent implements OnInit {
   characterPage = 'Character Page';
   bulletListPage = 'Bullet List Page';
 
+  highlight = false;
+
+  defaultColor = 'blue';
+  highlightColor = 'purple';
+
   @Output() pageSelected = new EventEmitter<string>();
 
   constructor() {}
