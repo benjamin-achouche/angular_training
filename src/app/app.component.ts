@@ -6,13 +6,4 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
-  characterPage = 'Character Page';
-  bulletListPage = 'Bullet List Page';
-  currentPage: string = this.characterPage;
-
-  title = 'myProject';
-
-  onPageSelected(page: string) {
-    this.currentPage = page;
-  }
 }

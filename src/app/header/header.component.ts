@@ -1,4 +1,4 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-header',
@@ -7,21 +7,8 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
   collapsed = true;
-  characterPage = 'Character Page';
-  bulletListPage = 'Bullet List Page';
-
-  highlight = false;
-
-  defaultColor = 'blue';
-  highlightColor = 'purple';
-
-  @Output() pageSelected = new EventEmitter<string>();
 
   constructor() {}
 
   ngOnInit(): void {}
-
-  onSelectPage(page: string) {
-    this.pageSelected.emit(page);
-  }
 }

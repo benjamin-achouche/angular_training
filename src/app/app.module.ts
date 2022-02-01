@@ -11,8 +11,10 @@ import { BulletListComponent } from './bullet-list/bullet-list.component';
 import { BulletEditComponent } from './bullet-list/bullet-edit/bullet-edit.component';
 import { DropdownDirective } from './shared/directives/dropdown.directive';
 import { BulletListService } from './bullet-list/service/bullet-list.service';
-import { HighlightDirective } from './shared/directives/highlight.directive';
-
+import { AppRoutingModule } from './app-routing.module';
+import { FormsModule } from '@angular/forms';
+import { CharacterStartComponent } from './characters/character-start/character-start.component';
+import { CharacterEditComponent } from './characters/character-edit/character-edit.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -24,9 +26,10 @@ import { HighlightDirective } from './shared/directives/highlight.directive';
     BulletListComponent,
     BulletEditComponent,
     DropdownDirective,
-    HighlightDirective,
+    CharacterStartComponent,
+    CharacterEditComponent,
   ],
-  imports: [BrowserModule],
+  imports: [BrowserModule, FormsModule, AppRoutingModule],
   providers: [BulletListService],
   bootstrap: [AppComponent],
 })

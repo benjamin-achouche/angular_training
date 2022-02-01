@@ -4,8 +4,6 @@ import { Character } from '../model/character.model';
 
 @Injectable()
 export class CharacterService {
-  characterSelected = new EventEmitter<Character>();
-
   private characters: Character[] = [
     new Character(
       'Leon S. Kennedy',
@@ -24,6 +22,10 @@ export class CharacterService {
       ]
     ),
   ];
+
+  getCharacter(id: number) {
+    return this.characters[id];
+  }
 
   getCharacters() {
     return this.characters.slice();
