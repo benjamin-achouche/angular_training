@@ -6,7 +6,8 @@
       <a
         class="list-group-item"
         style="cursor: pointer"
-        *ngFor="let bullet of bullets"
+        *ngFor="let bullet of bullets; let i = index"
+        (click)="onEditBullet(i)"
       >
         {{ bullet.name }} ({{ bullet.amount }})
       </a>

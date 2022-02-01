@@ -5,7 +5,6 @@ import { CharacterService } from './service/character.service';
   selector: 'app-characters',
   templateUrl: './characters.component.html',
   styleUrls: ['./characters.component.css'],
-  providers: [CharacterService],
 })
 export class CharactersComponent {
 }

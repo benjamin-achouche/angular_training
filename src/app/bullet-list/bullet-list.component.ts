@@ -21,6 +21,10 @@ export class BulletListComponent implements OnInit, OnDestroy {
     );
   }
 
+  onEditBullet(index: number) {
+    this.bulletListService.startedEditing.next(index);
+  }
+
   ngOnDestroy(): void {
       this.bulletChangeSub.unsubscribe();
   }

@@ -28,6 +28,11 @@ export class CharacterDetailComponent implements OnInit {
     this.bulletListService.addBullets(this.character.bullets);
   }
 
+  onDeleteCharacter() {
+    this.characterService.deleteCharacter(this.id);
+    this.router.navigate(['../'], {relativeTo: this.route});
+  }
+
   onUsingNavigateInsteadOfRouterLink() {
     this.router.navigate(['edit'], {relativeTo: this.route})
   }

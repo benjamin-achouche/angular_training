@@ -1,9 +1,12 @@
 import { EventEmitter, Injectable } from '@angular/core';
+import { Subject } from 'rxjs';
 import { Bullet } from 'src/app/shared/model/bullet.model';
 import { Character } from '../model/character.model';
 
 @Injectable()
 export class CharacterService {
+  charactersChanged = new Subject<Character[]>();
+
   private characters: Character[] = [
     new Character(
       'Leon S. Kennedy',
@@ -29,5 +32,20 @@ export class CharacterService {
 
   getCharacters() {
     return this.characters.slice();
+  }
+
+  addCharacter(newCharacter: Character) {
+    this.characters.push(newCharacter);
+    this.charactersChanged.next(this.characters.slice());
+  }
+  
+  updateCharacter(index: number, newCharacter: Character) {
+    this.characters[index] = newCharacter;
+    this.charactersChanged.next(this.characters.slice());
+  }
+  
+  deleteCharacter(index: number) {
+    this.characters.splice(index, 1);
+    this.charactersChanged.next(this.characters.slice());
   }
 }

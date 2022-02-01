@@ -26,13 +26,13 @@
           >
         </li>
         <li><a style="cursor: pointer" (click)="onUsingNavigateInsteadOfRouterLink()" >Edit Mercenary</a></li>
-        <li><a style="cursor: pointer">Delete Mercenary</a></li>
+        <li><a style="cursor: pointer" (click)="onDeleteCharacter()" >Delete Mercenary</a></li>
       </ul>
     </div>
   </div>
 </div>
 <div class="row">
-  <div class="col-xs-12">{{ character.desc }}</div>
+  <div class="col-xs-12">{{ character.description }}</div>
 </div>
 <div class="row">
   <div class="col-xs-12">

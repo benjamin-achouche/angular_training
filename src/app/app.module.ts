@@ -12,9 +12,10 @@ import { BulletEditComponent } from './bullet-list/bullet-edit/bullet-edit.compo
 import { DropdownDirective } from './shared/directives/dropdown.directive';
 import { BulletListService } from './bullet-list/service/bullet-list.service';
 import { AppRoutingModule } from './app-routing.module';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CharacterStartComponent } from './characters/character-start/character-start.component';
 import { CharacterEditComponent } from './characters/character-edit/character-edit.component';
+import { CharacterService } from './characters/service/character.service';
 @NgModule({
   declarations: [
     AppComponent,
@@ -29,8 +30,13 @@ import { CharacterEditComponent } from './characters/character-edit/character-ed
     CharacterStartComponent,
     CharacterEditComponent,
   ],
-  imports: [BrowserModule, FormsModule, AppRoutingModule],
-  providers: [BulletListService],
+  imports: [
+    BrowserModule,
+    FormsModule,
+    ReactiveFormsModule,
+    AppRoutingModule
+  ],
+  providers: [BulletListService, CharacterService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
